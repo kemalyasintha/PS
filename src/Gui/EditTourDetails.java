@@ -38,37 +38,42 @@ public class EditTourDetails extends javax.swing.JFrame {
         int y = (int) tk.getScreenSize().getHeight();
         this.setSize(x, y);
     }
-    DBOperation db =new DBOperation();
+    DBOperation db = new DBOperation();
 
     void setfields(tourdetails td) {
-        txtTourId.setText(new Integer(td.getTourid()).toString());
+        txtTourId.setText(Integer.toString(td.getTourid()));
         txttourname.setText(td.getTourname());
         txtdestination.setText(td.getDestination());
-        ddyear.setSelectedItem(new Integer(td.getYear()).toString());
+        ddyear.setSelectedItem(Integer.toString(td.getYear()));
         ddmonth.setSelectedItem(td.getMonth());
-        dddate.setSelectedItem(new Integer(td.getDay()).toString());
-        txtnoofpassengers.setText(new Integer(td.getNoofpassengers()).toString());
-        txtnoofdays.setText(new Integer(td.getNoofdays()).toString());
-        txtpricepercustomer.setText(new Integer(td.getPricepercustomer()).toString());
-        txtestmdtotalcost.setText(new Integer(td.getEstimatedtotalcost()).toString());
-        txtprofmargin.setText(new Integer(td.getProfitmargin()).toString());
-        txtairtktcost.setText(new Integer(td.getAirticket()).toString());
-        txtpassprtcost.setText(new Integer(td.getPassport()).toString());
-        txtvisacst.setText(new Integer(td.getVisa()).toString());
-        txtinsurcst.setText(new Integer(td.getInsurance()).toString());
-        txttranscost.setText(new Integer(td.getTransport()).toString());
-        txthospitcst.setText(new Integer(td.getHospitality()).toString());
-        txtsecondtimedisc.setText(new Integer(td.getSecondtimepercentage()).toString());
-        txt3rdtimedisc.setText(new Integer(td.getThirdtimepercentage()).toString());
-        txt4thabovedisc.setText(new Integer(td.getFourthabovepercentage()).toString());
-        spnratio.setToolTipText(new Integer(td.getRatio()).toString());
+        dddate.setSelectedItem(Integer.toString(td.getDay()));
+        txtnoofpassengers.setText(Integer.toString(td.getNoofpassengers()));
+        txtnoofdays.setText(Integer.toString(td.getNoofdays()));
+        txtpricepercustomer.setText(Integer.toString(td.getPricepercustomer()));
+        txtestmdtotalcost.setText(Integer.toString(td.getEstimatedtotalcost()));
+        txtprofmargin.setText(Integer.toString(td.getProfitmargin()));
+        txtairtktcost.setText(Integer.toString(td.getAirticket()));
+        txtpassprtcost.setText(Integer.toString(td.getPassport()));
+        txtvisacst.setText(Integer.toString(td.getVisa()));
+        txtinsurcst.setText(Integer.toString(td.getInsurance()));
+        txttranscost.setText(Integer.toString(td.getTransport()));
+        txthospitcst.setText(Integer.toString(td.getHospitality()));
+        txtsecondtimedisc.setText(Integer.toString(td.getSecondtimepercentage()));
+        txt3rdtimedisc.setText(Integer.toString(td.getThirdtimepercentage()));
+        txt4thabovedisc.setText(Integer.toString(td.getFourthabovepercentage()));
+        spnratio.setValue(td.getRatio());
+
         txtcreated.setText(td.getCurrentdate());
         if (td.getSecondtimepercentage() != 0 || td.getThirdtimepercentage() != 0 || td.getFourthabovepercentage() != 0) {
             cbpercentage.setSelected(true);
             cbdiscountallowed.setSelected(true);
+            cbdiscountallowedcheck();
+            cbpercentagecheck();
+            cbratiocheck();
         }
         if (td.getRatio() != 0) {
             cbratio.setSelected(true);
+            spnratio.setEnabled(true);
             cbdiscountallowed.setSelected(true);
         }
 
@@ -648,7 +653,7 @@ public class EditTourDetails extends javax.swing.JFrame {
 
     private void btnsavechngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsavechngActionPerformed
         // TODO add your handling code here:
-        String tdate=dddate.getSelectedItem().toString()+ddmonth.getSelectedItem()+ddyear.getSelectedItem() ;        
+        String tdate = dddate.getSelectedItem().toString() + ddmonth.getSelectedItem() + ddyear.getSelectedItem();
         if (checkfields()) {
             JOptionPane.showMessageDialog(this, " Some fields not filled...! ");
         } else {
@@ -694,15 +699,17 @@ public class EditTourDetails extends javax.swing.JFrame {
                     td.setTransport((Integer.parseInt(txttranscost.getText())));
                     td.setVisa((Integer.parseInt(txtvisacst.getText())));
                     td.setCurrentdate(txtcreated.getText());
-                    boolean result = db.updatetour(td, Integer.parseInt(txtTourId.getText()) );
+                    boolean result = db.updatetour(td, Integer.parseInt(txtTourId.getText()));
                     if (result) {
                         JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btnsavechng), "Data entered successfully...!");
-                        
+
                         this.dispose();
                     } else {
                         JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btnsavechng), "Error Occured...!");
                     }
                 } catch (Exception e) {
+                    JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btnsavechng), "Invalid Data...!");
+
                     //System.out.println(e);
                 }
             } else {
@@ -807,16 +814,10 @@ public class EditTourDetails extends javax.swing.JFrame {
     private javax.swing.JTextField txtvisacst;
     // End of variables declaration//GEN-END:variables
 
-    /**
-     * @return the td
-     */
     public tourdetails getTd1() {
         return td1;
     }
 
-    /**
-     * @param td the td to set
-     */
     public void setTd1(tourdetails td1) {
         this.td1 = td1;
     }

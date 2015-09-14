@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
 //import Gui.Login;
 
 public class DBOperation {
@@ -198,8 +199,11 @@ public class DBOperation {
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
             String query;
             //query = "UPDATE user SET Emptype='"+user.getEmployeeType()+"',Name='"+user.getName()+"', Address='"+user.getAddress()+"',Mobile="+user.getMobile()+",NIC='"+user.getNic()+"' WHERE NIC="+Nic;
+            String us="user ";
             query = "UPDATE user SET Emptype=? , Name=? , Address=? , Mobile=?  WHERE NIC=?";
+            
             pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            //pst.setString(1, us);
             pst.setString(1, user.getEmployeeType());
             pst.setString(2, user.getName());
             pst.setString(3, user.getAddress());
@@ -208,7 +212,7 @@ public class DBOperation {
             pst.executeUpdate();
             return true;
         } catch (Exception ex) {
-            //System.out.println(ex);
+            ex.printStackTrace();
             return false;
         }
     }
@@ -481,4 +485,67 @@ public class DBOperation {
         }
 
     }
+    
+    public void rettourlist(JComboBox c){
+        try{
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query="SELECT * FROM tour";
+            pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            rs= pst.executeQuery();
+            while(rs.next()){
+                String s=rs.getInt(1)+" "+rs.getString(2)+" Destination "+rs.getString(4);
+                
+                c.addItem(s);
+                
+            }
+            
+            
+        }catch(Exception e){
+            
+        }
+    }
+    
+    public boolean addcustomer(customerdetails c){
+        try{
+            java.util.Date utilDate = new SimpleDateFormat("yyyyMMMdd").parse(c.getDateofbirth());
+            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query="INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            pst.setInt(1, c.getCustid());
+            pst.setString(2, c.getName());
+            pst.setDate(3, sqlDate);
+            pst.setString(4, c.getSurname());
+            pst.setString(5, c.getInitials());
+            pst.setString(6, c.getGender());
+            pst.setString(7, c.getMaritalstatus());
+            pst.setString(8, c.getNicno());
+            pst.setString(9, c.getNationality());
+            pst.setString(10, c.getPassportno());
+            pst.setString(11, c.getPassportissuedate());
+            pst.setString(12, c.getPassportissueplace());
+            pst.setString(13, c.getPassportexpdate());
+            pst.setString(14, c.getCurrentaddress());
+            pst.setString(15, c.getPermanaddress());
+            pst.setString(16, c.getEmailaddress());
+            pst.setInt(17, c.getPhoneno());
+            pst.setInt(18, c.getMobileno());
+            pst.setInt(19, c.getTourid());
+            pst.setString(20, c.getTour());
+            pst.setInt(21, c.getPayment());
+            java.util.Date utiladdDate = c.getCustaddeddate();
+            java.sql.Date sqladdDate = new java.sql.Date(utiladdDate.getTime());
+            pst.setDate(22, sqladdDate);
+            pst.setString(23, c.getCivilstatus());
+            pst.executeUpdate();
+            return true;
+            
+        }
+        catch(Exception e){
+            System.err.println(e);
+            return false;
+        }
+        
+    }
+    
 }

@@ -139,6 +139,11 @@ public class Admin extends javax.swing.JFrame {
         btnCustomer.setMinimumSize(new java.awt.Dimension(257, 233));
         btnCustomer.setPreferredSize(new java.awt.Dimension(257, 233));
         btnCustomer.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerActionPerformed(evt);
+            }
+        });
 
         btnConfirmation.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnConfirmation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/confirmation.png"))); // NOI18N
@@ -330,6 +335,13 @@ public class Admin extends javax.swing.JFrame {
         adt.setVisible(true);
         adt.setDefaultCloseOperation(HIDE_ON_CLOSE);
     }//GEN-LAST:event_btnTourActionPerformed
+
+    private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
+        // TODO add your handling code here:
+        customer c =new customer();
+        c.setVisible(true);
+        c.setDefaultCloseOperation(HIDE_ON_CLOSE);
+    }//GEN-LAST:event_btnCustomerActionPerformed
 
     /**
      * @param args the command line arguments

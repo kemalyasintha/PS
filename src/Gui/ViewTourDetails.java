@@ -61,7 +61,7 @@ public class ViewTourDetails extends javax.swing.JFrame {
         txtsecondtimedisc.setText(Integer.toString(td.getSecondtimepercentage()));
         txt3rdtimedisc.setText(Integer.toString(td.getThirdtimepercentage()));
         txt4thabovedisc.setText(Integer.toString(td.getFourthabovepercentage()));
-        spnratio.setToolTipText(Integer.toString(td.getRatio()));
+        spnratio.setValue(td.getRatio());
         txtcreated.setText(td.getCurrentdate());
         if (td.getSecondtimepercentage() != 0 || td.getThirdtimepercentage() != 0 || td.getFourthabovepercentage() != 0) {
             cbpercentage.setSelected(true);
@@ -594,6 +594,9 @@ public class ViewTourDetails extends javax.swing.JFrame {
             txtsecondtimedisc.setEditable(true);
             txt3rdtimedisc.setEditable(true);
             txt4thabovedisc.setEditable(true);
+            txt3rdtimedisc.setEnabled(true);
+            txt4thabovedisc.setEnabled(true);
+            txtsecondtimedisc.setEnabled(true);
         } else {
             txt3rdtimedisc.setEditable(false);
             txtsecondtimedisc.setEditable(false);
@@ -636,25 +639,7 @@ public class ViewTourDetails extends javax.swing.JFrame {
 
     private void btnEditTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditTourActionPerformed
 
-        //btnEditTour.setText("Save Changes");
-        /*txtinsurcst.setEditable(true);
-        txtairtktcost.setEditable(true);
-        txtdestination.setEditable(true);
-        txtestmdtotalcost.setEditable(true);
-        txthospitcst.setEditable(true);
-        txtnoofdays.setEditable(true);
-        txtnoofpassengers.setEditable(true);
-        txtpassprtcost.setEditable(true);
-        txtpricepercustomer.setEditable(true);
-        txtprofmargin.setEditable(true);
-        txttourname.setEditable(true);
-        txttranscost.setEditable(true);
-        txtvisacst.setEditable(true);
-        cbdiscountallowed.setEnabled(true);
-        cbdiscountallowedcheck();
-        cbpercentagecheck();
-        cbratiocheck();
-        btnEditTour.setVisible(false);*/
+        
         EditTourDetails etd=new EditTourDetails();
         etd.setVisible(true);
         etd.setfields(td1);
