@@ -101,6 +101,8 @@ public class addcustomer1 extends javax.swing.JFrame {
         ddtours = new javax.swing.JComboBox();
         btnbacktour = new javax.swing.JButton();
         btnsubmit = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        tidTxt = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jRadioButton1 = new javax.swing.JRadioButton();
@@ -119,13 +121,15 @@ public class addcustomer1 extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox();
         jTextField6 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        tidTxt1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -567,10 +571,18 @@ public class addcustomer1 extends javax.swing.JFrame {
         });
 
         btnsubmit.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
-        btnsubmit.setText("SUBMIT");
+        btnsubmit.setText("Next");
         btnsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsubmitActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setText("TourId");
+
+        tidTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tidTxtActionPerformed(evt);
             }
         });
 
@@ -581,32 +593,42 @@ public class addcustomer1 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel16))
-                .addGap(54, 54, 54)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addGap(65, 65, 65)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtpayment, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                    .addComponent(ddtours, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtpayment)
+                    .addComponent(ddtours, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tidTxt))
                 .addGap(296, 296, 296))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnbacktour, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(btnsubmit)
-                .addGap(54, 54, 54))
+                .addContainerGap(40, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnbacktour, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(btnsubmit)
+                        .addGap(54, 54, 54))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(637, 637, 637))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16)
-                    .addComponent(ddtours, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
+                    .addComponent(jLabel23)
+                    .addComponent(tidTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ddtours, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(txtpayment, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnbacktour, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnsubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -712,7 +734,7 @@ public class addcustomer1 extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel29)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -726,7 +748,12 @@ public class addcustomer1 extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Submit");
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Cancel");
 
@@ -736,6 +763,14 @@ public class addcustomer1 extends javax.swing.JFrame {
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Yes", "No" }));
 
+        jLabel3.setText("TourID");
+
+        tidTxt1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tidTxt1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -744,25 +779,31 @@ public class addcustomer1 extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel31)
-                    .addComponent(jLabel30))
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(114, 114, 114)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tidTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tidTxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -775,7 +816,7 @@ public class addcustomer1 extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnSubmit)
                 .addGap(112, 112, 112))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -798,7 +839,7 @@ public class addcustomer1 extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(85, 85, 85)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(74, 74, 74))
@@ -825,58 +866,11 @@ public class addcustomer1 extends javax.swing.JFrame {
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
         // TODO add your handling code here:
         //db.retTourList(ddtours);
-        if (checkfields()) {
-            JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btnsubmit), "some fields not filled..!!");
-        } else {
-            try {
-                customerdetails cd = new customerdetails();
-                DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-                Date date = new Date();
-                String currentdate = dateFormat.format(date);
-                cd.setCurrentaddress(txtcurraddres.getText());
-                if (rbmarried.isSelected() && ddgender.getSelectedItem().equals("female")) {
-                    cd.setCivilstatus("MRs");
-                } else if (rbsingle.isSelected() && ddgender.getSelectedItem().equals("female")) {
-                    cd.setCivilstatus("MS");
-                } else {
-                    cd.setCivilstatus("MR");
-                }
-                cd.setCustaddeddate(date);
-                String dob = ddyear.getSelectedItem().toString() + ddmonth.getSelectedItem().toString() + dddate.getSelectedItem().toString();
-                cd.setDateofbirth(dob);
-                cd.setEmailaddress(txtemail.getText());
-                cd.setGender(ddgender.getSelectedItem().toString());
-                cd.setInitials(txtinitial.getText());
-                if (rbmarried.isSelected()) {
-                    cd.setMaritalstatus(rbmarried.getText());
-                } else {
-                    cd.setMaritalstatus(rbsingle.getText());
-                }
-                cd.setMobileno(Integer.parseInt(txtmobno.getText()));
-                cd.setName(txtcname.getText());
-                cd.setNationality(txtnationality.getText());
-                cd.setNicno(txtcnicno.getText());
-                cd.setPassportexpdate(txtpassexpdate.getText());
-                cd.setPassportissuedate(txtpassissuedate.getText());
-                cd.setPassportissueplace(txtpassissueplace.getText());
-                cd.setPassportno(txtcpassportno.getText());
-                cd.setPayment(Integer.parseInt(txtpayment.getText()));
-                cd.setPermanaddress(txtpermanentaddress.getText());
-                cd.setPhoneno(Integer.parseInt(txtphoneno.getText()));
-                cd.setSurname(txtcsurname.getText());
-                cd.setTour(ddtours.getSelectedItem().toString());
-                cd.setTourid(Integer.parseInt(ddtours.getSelectedItem().toString().substring(0, 1)));
-                cd.setCustid(0);
-                boolean result = db.addcustomer(cd);
-                if (result) {
-                    JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btnsubmit), "Data entered successfully..!!");
-                } else {
-                    JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(btnsubmit), "Error occured..!!");
-                }
-            } catch (Exception e) {
-                System.out.print(e);
-            }
-        }
+        tidTxt1.setText(tidTxt.getText());
+        
+        jTabbedPane4.setSelectedIndex(4);
+        
+
     }//GEN-LAST:event_btnsubmitActionPerformed
 
     private void btnbacktourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbacktourActionPerformed
@@ -936,6 +930,20 @@ public class addcustomer1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void tidTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tidTxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tidTxtActionPerformed
+
+    private void tidTxt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tidTxt1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tidTxt1ActionPerformed
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+        String a=tidTxt1.getText();
+        
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
     DBOperation db=new DBOperation();
     /**
      * @param args the command line arguments
@@ -974,6 +982,7 @@ public class addcustomer1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panelpassdetail;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JButton btnbackcontact;
     private javax.swing.JButton btnbackpass;
     private javax.swing.JButton btnbacktour;
@@ -987,7 +996,6 @@ public class addcustomer1 extends javax.swing.JFrame {
     private javax.swing.JComboBox ddtours;
     private javax.swing.JComboBox ddyear;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
@@ -1007,12 +1015,14 @@ public class addcustomer1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
@@ -1041,6 +1051,8 @@ public class addcustomer1 extends javax.swing.JFrame {
     private javax.swing.JPanel panelpersonaldetail;
     private javax.swing.JRadioButton rbmarried;
     private javax.swing.JRadioButton rbsingle;
+    private javax.swing.JTextField tidTxt;
+    public javax.swing.JTextField tidTxt1;
     private javax.swing.JTextField txtcname;
     private javax.swing.JTextField txtcnicno;
     private javax.swing.JTextField txtcpassportno;

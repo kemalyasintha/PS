@@ -3,20 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/EditTourDetails.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/ViewUser.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/ViewTourDetails.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/Admin.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/Regular.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/EditUser.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/User.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/ChangePassword.java</file>
             <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/customer.java</file>
             <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/pilgrimscrutinizer/DBOperation.java</file>
             <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/AddUser.java</file>
+            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/pilgrimscrutinizer/customerdetails.java</file>
             <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/Login.java</file>
             <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/addcustomer1.java</file>
-            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/createtour.java</file>
+            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/pilgrimscrutinizer/tourdetails.java</file>
+            <file>file:/C:/Users/kemal/Documents/GitHub/PS/src/Gui/Admin.java</file>
         </group>
     </open-files>
 </project-private>

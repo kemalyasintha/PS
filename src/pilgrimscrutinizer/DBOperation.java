@@ -75,7 +75,8 @@ public class DBOperation {
         }
     }
 
-    public int checkUsername(String username) {
+    
+ public int checkUsername(String username) {
         try {
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
             String query = "SELECT Username FROM user";
@@ -238,7 +239,7 @@ public class DBOperation {
             java.util.Date utilDate = new SimpleDateFormat("ddMMMyyyy").parse(td1.getDate());
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
-            String query = "INSERT INTO tour VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO tour VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
             pst.setInt(1, td1.getTourid());
             pst.setString(2, td1.getTourname());
@@ -263,6 +264,7 @@ public class DBOperation {
             pst.setString(21, td1.getMonth());
             pst.setInt(22, td1.getDay());
             pst.setString(23, td1.getCurrentdate());
+            pst.setBoolean(24,td1.getDiscount());
             pst.executeUpdate();
             return true;
 
@@ -438,7 +440,7 @@ public class DBOperation {
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             String query ="UPDATE tour SET tourname=?,tourdate=?, destination=?, noofpassengers=?, noofdays=?, pricepercustomer=?,"
                     + "	estimatedtotalcost=?, profitmargin=?, 2ndtimepercentage=?, 3rdtimepercentage=?, 4aboveppercentage=?, ratio=?, "
-                    + "airticket=?, passport=?,visa=?, insurance=?,transport=?, hospitality=?,touryear=?,tourmonth=?, 	day=?,currentdate=? WHERE tourid=? ";
+                    + "airticket=?, passport=?,visa=?, insurance=?,transport=?, hospitality=?,touryear=?,tourmonth=?, 	day=?,currentdate=?,Discount=? WHERE tourid=? ";
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
             pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
             //pst.setInt(1, td1.getTourid());
@@ -465,6 +467,7 @@ public class DBOperation {
             pst.setInt(21, td1.getDay());
             pst.setString(22, td1.getCurrentdate());
             pst.setInt(23, tid);
+            pst.setBoolean(24,td1.getDiscount());
             pst.executeUpdate();
             return true;
             

@@ -509,6 +509,7 @@ public class createtour extends javax.swing.JFrame {
     public void cbdiscountallowedcheck() {
 
         if (cbdiscountallowed.isSelected()) {
+            
             cbpercentage.setEnabled(true);
             cbratio.setEnabled(true);
         } else {
@@ -682,6 +683,7 @@ public class createtour extends javax.swing.JFrame {
                     } else {
                         td.setFourthabovepercentage((Integer.parseInt(txt4thabovedisc.getText())));
                     }
+                    td.setDiscount(cbdiscountallowed.isSelected());
                     td.setDate(tdate);
                     td.setYear(Integer.parseInt(ddyear.getSelectedItem().toString()));
                     td.setMonth((String) ddmonth.getSelectedItem());

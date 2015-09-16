@@ -22,6 +22,7 @@ public class tourdetails {
     private String month;
     private String destination;
     private String currentdate;
+    private Boolean Discount;
     private int noofpassengers;
     private int noofdays;
     private int pricepercustomer;
@@ -363,6 +364,14 @@ public class tourdetails {
      */
     public void setFourthabovepercentage(int fourthabovepercentage) {
         this.fourthabovepercentage = fourthabovepercentage;
+    }
+
+    public Boolean getDiscount() {
+        return Discount;
+    }
+
+    public void setDiscount(Boolean Discount) {
+        this.Discount = Discount;
     }
 
     
