@@ -78,9 +78,9 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
-        btnChangePassword.setBackground(new java.awt.Color(255, 255, 255));
+        btnChangePassword.setBackground(new java.awt.Color(102, 102, 255));
         btnChangePassword.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnChangePassword.setText("Change Password");
         btnChangePassword.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +89,7 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        btnSignOut.setBackground(new java.awt.Color(255, 255, 255));
+        btnSignOut.setBackground(new java.awt.Color(102, 102, 255));
         btnSignOut.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnSignOut.setText("Sign Out");
         btnSignOut.addActionListener(new java.awt.event.ActionListener() {
@@ -338,9 +338,6 @@ public class Admin extends javax.swing.JFrame {
 
     private void btnCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomerActionPerformed
         // TODO add your handling code here:
-        customer c =new customer();
-        c.setVisible(true);
-        c.setDefaultCloseOperation(HIDE_ON_CLOSE);
     }//GEN-LAST:event_btnCustomerActionPerformed
 
     /**

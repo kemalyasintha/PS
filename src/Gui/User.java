@@ -42,8 +42,8 @@ public class User extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Pilgrim Scrutinizer");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("User"));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "User", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
 
         btnViewUser.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnViewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/view user.jpg"))); // NOI18N

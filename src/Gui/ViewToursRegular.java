@@ -55,13 +55,13 @@ public class ViewToursRegular extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "View Tours", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 15))); // NOI18N
 
         lblHead.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         lblHead.setText("Available Upcoming Tours");
 
-        tblTours.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tblTours.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tblTours.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
