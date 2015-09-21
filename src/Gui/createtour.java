@@ -31,11 +31,7 @@ public class CreateTour extends javax.swing.JFrame {
      */
     public CreateTour() {
         initComponents();
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-
-        }
+jDateChooser1.getJCalendar().setMinSelectableDate(new Date());
         Toolkit tk = Toolkit.getDefaultToolkit();
         //int x = (int) tk.getScreenSize().getWidth();
         int x=700;
@@ -665,6 +661,7 @@ public class CreateTour extends javax.swing.JFrame {
         //String dt = dddate.getSelectedItem().toString() + ddmonth.getSelectedItem() + ddyear.getSelectedItem();
         Date date1 = jDateChooser1.getDate(); 
         
+        
         //Date dNow = new Date( );
         
       SimpleDateFormat ft = 
@@ -676,6 +673,7 @@ public class CreateTour extends javax.swing.JFrame {
             DateFormat dateFormat = new SimpleDateFormat("ddMMMyyyy");
             java.util.Date date = new java.util.Date();
             String cdate = dateFormat.format(date);
+            
             java.util.Date currentdate = new SimpleDateFormat("ddMMMyyyy").parse(cdate);
 
 if (currentdate.after(utilDate)) {
@@ -784,7 +782,8 @@ String dy=ft4.format(date1);
                     td.setYear(Integer.parseInt(yr));
                     td.setMonth(mt);
                     td.setDay(Integer.parseInt(dy));;
-                   
+                    
+                    td.setDate1(date1);
                     td.setTourid(0);
                     boolean result = db.addTour(td);
                     if (result) {

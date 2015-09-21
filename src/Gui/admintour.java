@@ -7,6 +7,7 @@
 package Gui;
 
 import java.awt.Toolkit;
+import java.util.Date;
 import javax.swing.UIManager;
 
 /**
@@ -19,11 +20,7 @@ public class admintour extends javax.swing.JFrame {
      * Creates new form admintour
      */
     public admintour() {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e){
         
-        }
         initComponents();
         Toolkit tk = Toolkit.getDefaultToolkit();
         int x = (int) tk.getScreenSize().getWidth();
@@ -160,9 +157,12 @@ public class admintour extends javax.swing.JFrame {
 
     private void btnAddtourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddtourActionPerformed
         // TODO add your handling code here:
+       
         CreateTour ct = new CreateTour();
+        
         ct.setVisible(true);
         ct.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        
     }//GEN-LAST:event_btnAddtourActionPerformed
 
     private void btnViewtourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewtourActionPerformed
@@ -188,16 +188,16 @@ public class admintour extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                /*if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                }*/UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(admintour.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);

@@ -6,6 +6,8 @@
 
 package pilgrimscrutinizer;
 
+import java.util.Date;
+
 
 
 /**
@@ -17,6 +19,7 @@ public class tourdetails {
     private String tourname;
    
     private String date;
+    private Date date1;
    private int day;
    private int profit;
    private int year;
@@ -372,6 +375,14 @@ public class tourdetails {
      */
     public void setFourthabovepercentage(int fourthabovepercentage) {
         this.fourthabovepercentage = fourthabovepercentage;
+    }
+
+    public void setDate1(Date date1) {
+        this.date1 = date1;
+    }
+
+    public Date getDate1() {
+        return date1;
     }
 
     

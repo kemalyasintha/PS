@@ -13,6 +13,7 @@ import java.util.Date;
  * @author Sachithra
  */
 public class customerdetails {
+    
     private int custid;
     private String name;
     private String dateofbirth;
@@ -39,6 +40,7 @@ public class customerdetails {
     private String civilstatus;
     private int discsug;
     private int totpayment;
+    private int dueamount;
     /**
      * @return the name
      */
@@ -391,6 +393,14 @@ public class customerdetails {
 
     public void setTotpayment(int totpayment) {
         this.totpayment = totpayment;
+    }
+
+    public int getDueamount() {
+        return dueamount;
+    }
+
+    public void setDueamount(int dueamount) {
+        this.dueamount = dueamount;
     }
 
     

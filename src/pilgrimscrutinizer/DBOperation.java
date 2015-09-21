@@ -496,7 +496,7 @@ public int checkNT(String tourname,String tno) {
                 System.out.println(y);
                 return y;
               }
-                else if(i>3){
+                else if(tno=="above3"){
                 System.out.println(z);
                 return z;
                 }else{
@@ -528,6 +528,73 @@ public int checkNT(String tourname,String tno) {
         }
        
 }
+
+public int retRatio(String tourname) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query = "SELECT * FROM tour";
+            //pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            stmt = con.createStatement(
+                           ResultSet.TYPE_SCROLL_INSENSITIVE,
+                           ResultSet.CONCUR_READ_ONLY);
+            rs =stmt.executeQuery(query);
+            
+            while (rs.next()) {
+                String tn=rs.getString("tourname");
+                String tid=rs.getString("tourid");
+                String cmb= tid + " " + tn ;
+            //System.out.println(tourname);
+            //System.out.println(cmb);
+            if(tourname.equals(cmb)){
+                System.out.println(cmb);
+                String prf=rs.getString("ratio");
+                int w=Integer.parseInt(prf);
+                return w;
+                //System.out.println(tno);
+          }
+                             
+               }
+           return 0;
+        }       catch (Exception e) {
+            //System.out.print(e);
+            return 0;
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+       
+            
+            }
+
+        }
+       
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public int calDisc1(String tourname) {
         try {
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
@@ -819,7 +886,7 @@ public int calDisc(String tourname) {
             java.util.Date utilDate = new SimpleDateFormat("yyyyMMMdd").parse(c.getDateofbirth());
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
-            String query="INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String query="INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
             pst.setInt(1, c.getCustid());
             pst.setString(2, c.getName());
@@ -848,6 +915,7 @@ public int calDisc(String tourname) {
             pst.setString(23, c.getCivilstatus());
             pst.setString(24, Integer.toString(c.getDiscsug()));
             pst.setString(25,Integer.toString(c.getTotpayment()) );
+            pst.setString(25,Integer.toString(c.getDueamount()) );
             pst.executeUpdate();
             return true;
             
@@ -858,5 +926,6 @@ public int calDisc(String tourname) {
         }
         
     }
+
     
 }
