@@ -14,7 +14,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 //import Gui.Login;
 
 public class DBOperation {
@@ -26,6 +29,8 @@ public class DBOperation {
     PreparedStatement pst = null;
     ResultSet rs = null;
     ResultSet lg = null;
+    Statement stmt = null;
+    private int tourid;
 
     public int login(String username, String password) {
         // TODO add your handling code here:
@@ -75,8 +80,7 @@ public class DBOperation {
         }
     }
 
-    
- public int checkUsername(String username) {
+    public int checkUsername(String username) {
         try {
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
             String query = "SELECT Username FROM user";
@@ -264,7 +268,7 @@ public class DBOperation {
             pst.setString(21, td1.getMonth());
             pst.setInt(22, td1.getDay());
             pst.setString(23, td1.getCurrentdate());
-            pst.setBoolean(24,td1.getDiscount());
+            pst.setInt(24, td1.getProfit());
             pst.executeUpdate();
             return true;
 
@@ -306,6 +310,7 @@ public class DBOperation {
                 td.setTourname(rs.getString(2));
                 td.setDate(rs.getDate(3).toString());
                 td.setDestination(rs.getString(4));
+                
                 td.setNoofpassengers(rs.getInt(5));
                 td.setNoofdays(rs.getInt(6));
                 td.setPricepercustomer(rs.getInt(7));
@@ -382,7 +387,305 @@ public class DBOperation {
         }
 
     }
+/*
+     public void returnTid(JTextField a,JComboBox c )  {
+         try{
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query="SELECT * FROM tour";
+            pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            rs= pst.executeQuery();
+            while(c.getSelectedItem()==rs.next()){
+                int i=rs.getInt(1) ; 
+                String s=Integer.toString(i);
+                a.setText(s);
+            }
+         }catch(Exception e){
+            
+        }
+     }
+  */  
+public int checkTourname(String tourname) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query = "SELECT * FROM tour";
+            //pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            stmt = con.createStatement(
+                           ResultSet.TYPE_SCROLL_INSENSITIVE,
+                           ResultSet.CONCUR_READ_ONLY);
+            rs =stmt.executeQuery(query);
+            
+            while (rs.next()) {
+                String tn=rs.getString("tourname");
+                String tid=rs.getString("tourid");
+                String cmb= tid + " " + tn ;
+            //System.out.println(tourname);
+            //System.out.println(cmb);
+                if( cmb.equals(tourname)){
+            //System.out.println(tourname);
+             int w=rs.getInt("ratio");
+             int x=rs.getInt("2ndtimepercentage");
+             int y=rs.getInt("3rdtimepercentage");
+             int z=rs.getInt("4aboveppercentage");
+             //System.out.println(x); 
+             if(w!=0 || x!=0||y!=0||z!=0){
+             return 0;
+             }
+          return 1;
+               }
+                
+             
+            }
+            
+            return 1;
+        }       catch (Exception e) {
+            //System.out.print(e);
+            return 2;
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+       
+            
+            }
 
+        }
+       
+}
+   
+
+public int checkNT(String tourname,String tno) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query = "SELECT * FROM tour";
+            //pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            stmt = con.createStatement(
+                           ResultSet.TYPE_SCROLL_INSENSITIVE,
+                           ResultSet.CONCUR_READ_ONLY);
+            rs =stmt.executeQuery(query);
+            
+            while (rs.next()) {
+                String tn=rs.getString("tourname");
+                String tid=rs.getString("tourid");
+                String cmb= tid + " " + tn ;
+            //System.out.println(tourname);
+            //System.out.println(cmb);
+            if(tourname.equals(cmb)){
+                System.out.println(cmb);
+                String sec=rs.getString("2ndtimepercentage");
+                String thi=rs.getString("3rdtimepercentage");
+                String fou=rs.getString("4aboveppercentage");
+                String etc=rs.getString("estimatedtotalcost");
+                int w=Integer.parseInt(etc);
+                int x=Integer.parseInt(sec);
+                int y=Integer.parseInt(thi);
+                int z=Integer.parseInt(fou);
+                //System.out.println(tno);
+                int i=Integer.parseInt(tno);
+                //System.out.println(i);
+                if(i==2){
+                System.out.println(x);
+                return x;
+                }
+                else if(i==3)
+                {
+                System.out.println(y);
+                return y;
+              }
+                else if(i>3){
+                System.out.println(z);
+                return z;
+                }else{
+                
+                return 0;
+                }
+                
+                
+            }
+                             
+               }
+           return 0;
+        }       catch (Exception e) {
+            //System.out.print(e);
+            return 0;
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+       
+            
+            }
+
+        }
+       
+}
+public int calDisc1(String tourname) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query = "SELECT * FROM tour";
+            //pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            stmt = con.createStatement(
+                           ResultSet.TYPE_SCROLL_INSENSITIVE,
+                           ResultSet.CONCUR_READ_ONLY);
+            rs =stmt.executeQuery(query);
+            
+            while (rs.next()) {
+                String tn=rs.getString("tourname");
+                String tid=rs.getString("tourid");
+                String cmb= tid + " " + tn ;
+            //System.out.println(tourname);
+            //System.out.println(cmb);
+            if(tourname.equals(cmb)){
+                System.out.println(cmb);
+                String prf=rs.getString("profit");
+                int w=Integer.parseInt(prf);
+                return w;
+                //System.out.println(tno);
+          }
+                             
+               }
+           return 0;
+        }       catch (Exception e) {
+            //System.out.print(e);
+            return 0;
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+       
+            
+            }
+
+        }
+       
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public int calDisc(String tourname) {
+        try {
+            con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
+            String query = "SELECT * FROM tour";
+            //pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
+            stmt = con.createStatement(
+                           ResultSet.TYPE_SCROLL_INSENSITIVE,
+                           ResultSet.CONCUR_READ_ONLY);
+            rs =stmt.executeQuery(query);
+            
+            while (rs.next()) {
+                String tn=rs.getString("tourname");
+                String tid=rs.getString("tourid");
+                String cmb= tid + " " + tn ;
+            //System.out.println(tourname);
+            //System.out.println(cmb);
+            if(tourname.equals(cmb)){
+                System.out.println(cmb);
+                String etc=rs.getString("pricepercustomer");
+                int w=Integer.parseInt(etc);
+                return w;
+                //System.out.println(tno);
+          }
+                             
+               }
+           return 0;
+        }       catch (Exception e) {
+            //System.out.print(e);
+            return 0;
+        } finally {
+            try {
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
+            } catch (Exception e) {
+       
+            
+            }
+
+        }
+       
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
     public tourdetails viewTourDetails(int tid) {
         try {
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
@@ -415,6 +718,7 @@ public class DBOperation {
                 td.setMonth(rs.getString(21));
                 td.setDay(rs.getInt(22));
                 td.setCurrentdate(rs.getDate(23).toString());
+                
             }
             return td;
         } catch (Exception e) {
@@ -440,7 +744,7 @@ public class DBOperation {
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             String query ="UPDATE tour SET tourname=?,tourdate=?, destination=?, noofpassengers=?, noofdays=?, pricepercustomer=?,"
                     + "	estimatedtotalcost=?, profitmargin=?, 2ndtimepercentage=?, 3rdtimepercentage=?, 4aboveppercentage=?, ratio=?, "
-                    + "airticket=?, passport=?,visa=?, insurance=?,transport=?, hospitality=?,touryear=?,tourmonth=?, 	day=?,currentdate=?,Discount=? WHERE tourid=? ";
+                    + "airticket=?, passport=?,visa=?, insurance=?,transport=?, hospitality=?,touryear=?,tourmonth=?,day=?,currentdate=?,profit=? WHERE tourid=? ";
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
             pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
             //pst.setInt(1, td1.getTourid());
@@ -466,8 +770,10 @@ public class DBOperation {
             pst.setString(20, td1.getMonth());
             pst.setInt(21, td1.getDay());
             pst.setString(22, td1.getCurrentdate());
-            pst.setInt(23, tid);
-            pst.setBoolean(24,td1.getDiscount());
+            pst.setInt(23,td1.getProfit() );
+            pst.setInt(24, tid);
+            
+            //System.out.println(td1.getProfit());
             pst.executeUpdate();
             return true;
             
@@ -496,7 +802,7 @@ public class DBOperation {
             pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
             rs= pst.executeQuery();
             while(rs.next()){
-                String s=rs.getInt(1)+" "+rs.getString(2)+" Destination "+rs.getString(4);
+                String s=rs.getString(1)+" "+rs.getString(2);
                 
                 c.addItem(s);
                 
@@ -513,7 +819,7 @@ public class DBOperation {
             java.util.Date utilDate = new SimpleDateFormat("yyyyMMMdd").parse(c.getDateofbirth());
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             con = (Connection) DriverManager.getConnection(url, this.usernamel, this.passwordl);
-            String query="INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String query="INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pst = (com.mysql.jdbc.PreparedStatement) con.prepareStatement(query);
             pst.setInt(1, c.getCustid());
             pst.setString(2, c.getName());
@@ -540,6 +846,8 @@ public class DBOperation {
             java.sql.Date sqladdDate = new java.sql.Date(utiladdDate.getTime());
             pst.setDate(22, sqladdDate);
             pst.setString(23, c.getCivilstatus());
+            pst.setString(24, Integer.toString(c.getDiscsug()));
+            pst.setString(25,Integer.toString(c.getTotpayment()) );
             pst.executeUpdate();
             return true;
             

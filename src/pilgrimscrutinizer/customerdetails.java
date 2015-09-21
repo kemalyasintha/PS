@@ -37,7 +37,8 @@ public class customerdetails {
     private int payment;
     private Date custaddeddate;
     private String civilstatus;
-
+    private int discsug;
+    private int totpayment;
     /**
      * @return the name
      */
@@ -374,6 +375,22 @@ public class customerdetails {
      */
     public void setCustid(int custid) {
         this.custid = custid;
+    }
+
+    public void setDiscsug(int discsug) {
+        this.discsug = discsug;
+    }
+
+    public int getDiscsug() {
+        return discsug;
+    }
+
+    public int getTotpayment() {
+        return totpayment;
+    }
+
+    public void setTotpayment(int totpayment) {
+        this.totpayment = totpayment;
     }
 
     

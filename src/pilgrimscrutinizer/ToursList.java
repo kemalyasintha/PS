@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ToursList extends AbstractTableModel {
 
-    private static final String[] ColumnNames = {"Tour ID", "Tour Name", "Destination", "Tour Date", "Price per Customer", "No of Days"};
+    private static final String[] ColumnNames = {"Tour ID", "Tour Name",  "Tour Date","Destination", "Price per Customer", "No of Days"};
     private static ArrayList<tourdetails> list;
 
     public ToursList(ArrayList<tourdetails> tlist) {

@@ -17,12 +17,13 @@ public class tourdetails {
     private String tourname;
    
     private String date;
-    private int day;
-    private int year;
+   private int day;
+   private int profit;
+   private int year;
+
     private String month;
     private String destination;
     private String currentdate;
-    private Boolean Discount;
     private int noofpassengers;
     private int noofdays;
     private int pricepercustomer;
@@ -193,11 +194,18 @@ public class tourdetails {
         this.profitmargin = profitmargin;
     }
 
+    public void setProfit(int profit) {
+        this.profit = profit;
+    }
+
     /**
      * @return the firsttimepercentage
      */
     
 
+    public int getProfit() {
+        return profit;
+    }
     /**
      * @return the ratio
      */
@@ -364,14 +372,6 @@ public class tourdetails {
      */
     public void setFourthabovepercentage(int fourthabovepercentage) {
         this.fourthabovepercentage = fourthabovepercentage;
-    }
-
-    public Boolean getDiscount() {
-        return Discount;
-    }
-
-    public void setDiscount(Boolean Discount) {
-        this.Discount = Discount;
     }
 
     
